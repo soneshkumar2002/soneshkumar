@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags, title, and external stylesheet -->
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+     
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+		 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+        #home .fab,
+        #home .fas {
+            color: gold;
+        }
+
+        h2 {
+            color: #4CAF50;
+            background: #FFD700;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+     .nav-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #48cfad;
+        }
+
+        nav {
+            background: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #48cfad;
+        }
+
+        /* Styles for small screens */
+        @media only screen and (max-width: 767px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #333;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+
+        section {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+		 .button-email {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .button-email:hover {
+            background-color: #0056b3;
+        }
+
+        .card-container {
+            display: flex;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .card {
+            box-shadow: 0 2px px rgba(0, 0, 0, 0.2);
+            margin-right: 10px;
+            flex: 0 0 45%; /* Adjust the width as needed */
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        /* Common styles for all devices */
+.icon-container {
+    width: 50px;
+    height: 50px;
+    background-color: gold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .icon-container center {
+    color: #333; 
+}
+
+/* Styles for small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .icon-container {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Styles for medium screens (768px - 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .icon-container {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Styles for large screens (992px and above) */
+@media only screen and (min-width: 992px) {
+    .icon-container {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+       .card .icon-container {
+    text-align: center;
+    color: #333;
+}
+
+        .container {
+            padding: 16px;
+        }
+
+        .zoom {
+            transition: transform 0.2s;
+        }
+
+        .zoom:hover {
+            transform: scale(1.05);
+        }
+
+        #profile-image {
+            border-radius: 300%;
+            width: 200px;
+            height: 200px;
+            border: 5px solid gold;
+        }
+
+        header {
+            background-image: url('C:\Users\ELCOT\Desktop\New folder (8)\download (9).jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form {
+            width: 400px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #777;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: #f44336;
+            margin-top: 10px;
+        }
+        #contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+        footer {
+            background: #333;
+            padding: 20px 0;
+        }
+
+        #contact {
+            text-align: center;
+        }
+
+        footer div {
+            margin-bottom: 10px;
+        }
+
+        footer label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+     <!-- Navigation Section -->
+    <nav>
+	
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+<!-- Header Section -->
+   <!-- Header Section -->
+<header>
+    <section id="home">
+        <div>
+       <img src="file\sone.jpg" alt="Your Name" id="profile-image">
+<div>
+	   <p>Hi I'M</p>
+            <h1><b>SONESHKUMAR.K</b></h1>
+            <p>welcome to my portfolio website!I'm a passionate and aspiring front-end developer with a strong
+                desire to create innovative solutions and push the boundaries of technology. I am constantly seeking
+                opportunities to learn and grow in this ever-evolving field</p>
+      
+      <p>
+                <a href="C:\Users\ELCOT\Desktop\sk photfol\SONESH CV Resume.pdf" class="button">Download CV</a>
+                <a href="mailto:soneshkumar92@gmail.com" class="button-email">Send Email</a>
+            </p>
+
+</div>
+     <!-- Social media icons moved down -->
+<div>
+    <a href="https://wa.me/8300745543" target="_blank" title="WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#25D366" width="24" height="24" viewBox="0 0 24 24">
+            <!-- WhatsApp icon path -->
+            <!-- Replace the existing path data with the path data for your preferred WhatsApp icon -->
+            <path d="M2 21l1.5-4.5L2 16l4.5-1.5L8 15l-1.5 1.5L7 21l3-3 1.5 1.5L15 21l1.5-6L18 9l3 3-1.5 6L21 21l-3.75-1.5L12 21l-1.5-6L8.25 9m6.75-1.5L15 15l1.5-6L12 3l-1.5 6L9 15l1.5-1.5 1.5 1.5z"/>
+        </svg>
+    </a>
+    <a href="mailto:soneshkumar92@gmail.com" title="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#EA4335" width="24" height="24" viewBox="0 0 24 24">
+            <!-- Email icon path -->
+            <!-- Replace the existing path data with the path data for your preferred Email icon -->
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM4 6h9l3 2.25L19 6H4zm0 2v8h16V8l-8 6-8-6z"/>
+        </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/sonesh-kumar-98b752245" target="_blank" title="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#0077B5" width="24" height="24" viewBox="0 0 24 24">
+            <!-- LinkedIn icon path -->
+            <!-- Replace the existing path data with the path data for your preferred LinkedIn icon -->
+            <path d="M20.65 20.65h-.01c-1.73 1.73-4.57 1.73-6.31 0-1.73-1.73-1.73-4.57 0-6.31L8 8c-1.73 1.73-4.57 1.73-6.31 0-1.73-1.73-1.73-4.57 0-6.31L1.63 1.63 3.04.22 21.77 18.95l-1.41 1.41zM5.49 5.51c-1.25 1.25-1.25 3.29 0 4.54 1.25 1.25 3.29 1.25 4.54 0 1.25-1.25 1.25-3.29 0-4.54-1.25-1.25-3.29-1.25-4.54 0zM4.08 19.02l.04.04L2 21l1.98-3.38 1.1 1.36-.04.04zM14.99 7h2v7h-2zM15 18h2v2h-2z"/>
+        </svg>
+    </a>
+    <a href="https://www.instagram.com/sonesh___sk__kumar?igsh=cTd2eDdxOXg1ZWp0" target="_blank" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#E4405F" width="24" height="24" viewBox="0 0 24 24">
+            <!-- Instagram icon path -->
+            <!-- Replace the existing path data with the path data for your preferred Instagram icon -->
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 1.25c.23 0 .45.02.68.05.02 0 .04 0 .06 0a6.16 6.16 0 0 1 5.5 5.5h-2.1a4.14 4.14 0 0 0-3.73-3.73v-2.1c.03.02.07.04.1.06.03.04.06.07.1.1a4.07 4.07 0 0 0 3.1 6.46A6.17 6.17 0 0 1 12 18.75c-3.24 0-5.87-2.63-5.87-5.87S8.76 7.5 12 7.5z"/>
+            <path d="M12 8.5c-2.24 0-4.05 1.81-4.05 4.05S9.76 16.6 12 16.6s4.05-1.81 4.05-4.05-1.81-4.05-4.05-4.05zM16.25 6.25h1.5c.14 0 .25.11.25.25v1.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25v-1.5c0-.14.11-.25.25-.25z"/>
+        </svg>
+    </a>
+</div>
+
+
+        </div>
+    </section>
+</header>
+
+
+<!-- About Section -->
+    <section id="about">
+        <div>
+            <h2>About Me</h2>
+                    <!-- Information about the person -->
+            <div>
+                <p><b>Web Developer | Designer | Comic Drawing</b></p>
+                <p><label>Course:</label><b>WEB DEVELOPER</b></p>
+                <p><label>Internship:</label> <b>ABC Infomedia PVT LTD</b></p>
+            </div>
+        </div>
+    </section>
+	  <!-- Education Section -->
+    <section id="education">
+    <div>
+        <h2>Education</h2>
+        <div class="card-container">
+            <!-- Education cards with details -->
+            <div class="card zoom">
+                <div class="icon-container">
+                    <!-- Use the school icon -->
+                    <center><i class="fas fa-school"></i></center>
+                </div>
+                <div class="container">
+                    <img src="file\periyar.png">
+                    <h5>MCA-master of computer application</h5>
+                    <p class="title">periyar University salem</p>
+                    <p>
+                        <h3>August 2022-present</h3>
+                        <h4>Relevant coursework</h4>
+                        <ul>
+                            <li>Advance java</li>
+                            <li>Advance machine learning</li>
+                            <li>Data engineering and management</li>
+                            <li>Web development</li>
+                            <li>Solution architecture</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="card zoom">
+                <div class="icon-container">
+                    <!-- Use the school icon -->
+                    <center><i class="fas fa-school"></i></center>
+                </div>
+                <div class="container">
+                    <img src="file\download vysya.jpg">
+                    <h5>BSC-bachelor of science in computer science</h5>
+                    <p class="title">vysya collage of arts and science</p>
+                    <p>
+                        <h3>August 2019-2022</h3>
+                        <h4>Relevant coursework</h4>
+                        <ul>
+                            <li>C programming</li>
+                            <li>Object-oriented programming in C++</li>
+                            <li>Data engineering and management</li>
+                            <li>Software engineering</li>
+                            <li>Computer Network</li>
+                            <li>Data Mining and Warehousing</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+	 <!-- Portfolio Section -->
+    <section id="portfolio">
+    <div>
+        <h2>Projects</h2>
+        <div class="card-container">
+            <!-- Project cards with details -->
+            <div class="card zoom">
+                <div class="icon-container">
+                    <!-- Use a different icon, for example, a code icon -->
+                    <center><i class="fas fa-code"></i></center>
+                </div>
+                <div class="container">
+                    <h5>Digital Business Card</h5>
+                    <p class="title">AR</p>
+                    <p>Description of the project goes here...</p>
+                    <p><a href="imag1.html"><button class="button">Click</button></a></p>
+                </div>
+            </div>
+            <div class="card zoom">
+                <div class="icon-container">
+                    <!-- Use a different icon, for example, a paintbrush icon -->
+                    <center><i class="fas fa-paint-brush"></i></center>
+                </div>
+                <div class="container">
+                    <h5>Image Editor</h5>
+                    <p class="title">HTML, CSS, JS</p>
+                    <p>Description of the project goes here...</p>
+                    <p><a href="imag2.html"><button class="button">Click</button></a></p>
+                </div>
+            </div>
+            <div class="card zoom">
+                <div class="icon-container">
+                    <!-- Use a different icon, for example, a file icon -->
+                    <center><i class="fas fa-file"></i></center>
+                </div>
+                <div class="container">
+                    <h5>Web Page (PDF) Popup</h5>
+                    <p class="title">HTML, CSS, JS</p>
+                    <p>Description of the project goes here...</p>
+                    <p><a href="imag3.html"><button class="button">Click</button></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+    <footer>
+        <section id="contact">
+                <h2>Contact Me</h2>
+				    
+					<center><form id="contact-form">
+					<!-- Contact form with input fields -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <input type="submit" value="Submit">
+        <p class="success-message" id="success-message"></p>
+        <p class="error-message" id="error-message"></p>
+    </form></center>
+        </section>
+    </footer>
+	<!-- JavaScript Script -->
+<script>
+            // JavaScript code for form submission handling
+			function toggleNav() {
+            var nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+        }
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+	    var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+
+        if (name && email && subject && message) {
+            // Simulate form submission (you can replace this with actual form submission logic)
+            // In this example, we just display a success message
+            document.getElementById('success-message').innerText = 'Form submitted successfully!';
+            document.getElementById('error-message').innerText = '';
+        } else {
+            document.getElementById('success-message').innerText = '';
+            document.getElementById('error-message').innerText = 'Please fill out all fields.';
+        }
+    });
+</script>
+
+</body>
+
+</html>
